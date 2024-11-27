@@ -1,0 +1,23 @@
+@use '@styles/' as *;
+
+.form {
+	padding: 1rem;
+	max-width: 300rem;
+	border-radius: 10px;
+
+	@include flexPosition(column, center, center);
+
+	&__row {
+		gap: 0.5rem;
+
+		@include flexPosition(column, center, flex-start);
+	}
+
+	&.light {
+		background-color: $gray-300;
+	}
+
+	&.dark {
+		background-color: $gray-800;
+	}
+}

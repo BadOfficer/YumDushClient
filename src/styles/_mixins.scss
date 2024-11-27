@@ -1,0 +1,19 @@
+@mixin hover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin flexPosition($direction: row, $justify: left, $alignItems: flex-start) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $alignItems;
+}
+
+@mixin setThemeColors($bg-color, $color) {
+	background-color: $bg-color;
+	color: $color;
+}

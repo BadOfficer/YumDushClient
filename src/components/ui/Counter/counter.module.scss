@@ -1,0 +1,52 @@
+@use '@/styles' as *;
+
+.counter {
+	overflow: hidden;
+	border: 2px solid $indigo-800;
+	border-radius: 5px;
+
+	@include flexPosition(row, center, center);
+
+	input {
+		border: none;
+		outline: none;
+		font-size: 1.1rem;
+		height: 2rem;
+		max-width: 2.5rem;
+		text-align: center;
+	}
+
+	button {
+		font-size: 1.1rem;
+		padding: 0.1rem 0.5rem;
+		height: 2rem;
+		cursor: pointer;
+	}
+
+	&.light {
+		button {
+			background-color: $gray-100;
+			color: $dark-600;
+
+			@include hover {
+				background-color: $gray-300;
+			}
+		}
+	}
+
+	&.dark {
+		input {
+			background-color: $dark-600;
+			color: $gray-200;
+		}
+
+		button {
+			background-color: $dark-400;
+			color: $gray-200;
+
+			@include hover {
+				background-color: $dark-500;
+			}
+		}
+	}
+}

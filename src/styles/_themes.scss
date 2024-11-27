@@ -1,0 +1,11 @@
+@use './colors' as *;
+
+html[data-theme='light'] {
+	--bg-color: #{$white-200};
+	--color: #{$dark-600};
+}
+
+html[data-theme='dark'] {
+	--bg-color: #{$dark-700};
+	--color: #{$gray-200};
+}

@@ -1,0 +1,11 @@
+@use '@/styles' as *;
+
+.form {
+	@include flexPosition(column, center, center);
+	padding: 2rem !important;
+	gap: 2rem;
+
+	&__btn {
+		width: 100%;
+	}
+}

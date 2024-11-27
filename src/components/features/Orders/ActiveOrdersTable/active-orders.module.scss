@@ -1,0 +1,52 @@
+@use '@/styles' as *;
+
+.orders {
+	@include flexPosition(column, center, center);
+	gap: 2rem;
+}
+
+.order {
+	&__trigger {
+		max-width: 2rem;
+		text-align: center;
+		color: $dark-200;
+	}
+
+	&__status {
+		gap: 0.5rem;
+		height: 100%;
+		text-transform: uppercase;
+		font-weight: 500;
+		font-size: 0.85rem;
+
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	&__created {
+		max-width: 12rem;
+	}
+
+	&__action {
+		max-width: 3rem;
+
+		button {
+			font-size: 0.9rem;
+			padding: 0.4rem 1rem;
+		}
+	}
+
+	&__user-avatar {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+}
+
+.active {
+	background-color: $green-900;
+	width: 0.5rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+}

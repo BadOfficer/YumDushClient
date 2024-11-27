@@ -1,0 +1,42 @@
+@use '@/styles' as *;
+
+.loader {
+	border-radius: 50%;
+	animation: rotate 1.5s infinite linear;
+	border-style: solid;
+	aspect-ratio: 1;
+}
+
+.xs {
+	width: 1.2rem;
+	border-width: 0.2rem;
+}
+
+.m {
+	width: 5rem;
+	border-width: 0.5rem;
+}
+
+.xl {
+	width: 10rem;
+	border-width: 1rem;
+}
+
+.base {
+	border-color: $gray-200;
+	border-top-color: $indigo-700;
+}
+
+.button {
+	border-color: $gray-700;
+	border-top-color: $dark-400;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

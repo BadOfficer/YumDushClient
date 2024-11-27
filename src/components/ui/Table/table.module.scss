@@ -1,0 +1,79 @@
+@use '@/styles' as *;
+
+.table {
+	border-collapse: separate;
+	border-spacing: 0;
+	border: none;
+	width: 100%;
+
+	thead {
+		text-transform: uppercase;
+		text-align: left;
+
+		th {
+			padding: 1.4rem 2rem;
+			font-weight: 600;
+		}
+	}
+
+	&__cell {
+		max-width: 15rem;
+		padding: 1rem 2rem;
+
+		&:first-child {
+			border-radius: 10px 0 0 10px;
+		}
+
+		&:last-child {
+			border-radius: 0 10px 10px 0;
+		}
+	}
+}
+
+.light {
+	.table {
+		&__row {
+			@include hover {
+				background-color: $gray-100;
+			}
+		}
+
+		&__cell {
+			color: $dark-600;
+		}
+	}
+
+	thead {
+		background-color: $gray-200;
+
+		tr {
+			@include hover {
+				background-color: $gray-200;
+			}
+		}
+	}
+}
+
+.dark {
+	.table {
+		&__row {
+			@include hover {
+				background-color: $dark-800;
+			}
+		}
+
+		&__cell {
+			color: $gray-200;
+		}
+	}
+
+	thead {
+		background-color: $dark-600;
+
+		tr {
+			@include hover {
+				background-color: $dark-600 !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+@use '@/styles/' as *;
+
+.header {
+	@include flexPosition(row, space-between, center);
+	width: 100%;
+
+	h1 {
+		text-transform: uppercase;
+	}
+}
+
+.light {
+	h1 {
+		color: $dark-600;
+	}
+}
+
+.dark {
+	h1 {
+		color: $gray-200;
+	}
+}

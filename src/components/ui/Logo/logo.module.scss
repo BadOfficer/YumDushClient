@@ -1,0 +1,26 @@
+@use '@styles/' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+.logo {
+	color: $indigo-700;
+	gap: 1rem;
+	text-decoration: none;
+	font-family: 'Oswald', serif;
+
+	@include flexPosition(row, center, center);
+
+	@include hover {
+		color: $indigo-900;
+	}
+
+	svg {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+}

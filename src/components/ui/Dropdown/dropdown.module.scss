@@ -1,0 +1,70 @@
+@use '@styles/' as *;
+
+.dropdown {
+	&__body {
+		position: fixed;
+		font-size: 0.9rem;
+		padding: 0.5rem;
+		border-radius: 5px;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		z-index: 1000;
+		list-style: none;
+		min-width: 12rem;
+	}
+
+	&__trigger {
+		background: none;
+		cursor: pointer;
+	}
+
+	&__item {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		gap: 0.8rem;
+		font-size: 0.9rem;
+		cursor: pointer;
+
+		@include flexPosition(row, flex-start, center);
+	}
+}
+
+.light {
+	.dropdown {
+		&__body {
+			background-color: $gray-200;
+		}
+
+		&__trigger {
+			color: $dark-600;
+		}
+
+		&__item {
+			color: $gray-800;
+
+			@include hover {
+				background-color: $gray-400;
+			}
+		}
+	}
+}
+
+.dark {
+	.dropdown {
+		&__body {
+			background-color: $dark-600;
+		}
+
+		&__trigger {
+			color: $gray-200;
+		}
+		&__item {
+			color: $gray-200;
+
+			@include hover {
+				background-color: $dark-400;
+			}
+		}
+	}
+}

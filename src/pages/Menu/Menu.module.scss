@@ -1,0 +1,8 @@
+@use '@/styles/' as *;
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3rem;
+}

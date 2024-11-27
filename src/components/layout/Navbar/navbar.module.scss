@@ -1,0 +1,50 @@
+@use '@styles' as *;
+
+.navbar {
+	flex: 1 1 0;
+
+	&__list {
+		list-style: none;
+		gap: 0 0.5rem;
+
+		@include flexPosition(row, center, center);
+	}
+
+	&__item {
+		padding: 0.6rem 1.2rem;
+		border-radius: 6px;
+		text-decoration: none;
+	}
+}
+
+.light {
+	.navbar {
+		&__item {
+			color: $dark-600;
+
+			&.active {
+				background-color: $gray-300;
+			}
+
+			@include hover {
+				background-color: $gray-300;
+			}
+		}
+	}
+}
+
+.dark {
+	.navbar {
+		&__item {
+			color: $gray-200;
+
+			&.active {
+				background-color: $gray-800;
+			}
+
+			@include hover {
+				background-color: $gray-800;
+			}
+		}
+	}
+}
