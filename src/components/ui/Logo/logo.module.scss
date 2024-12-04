@@ -3,15 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 .logo {
-	color: $indigo-700;
+	color: var(--accent);
 	gap: 1rem;
 	text-decoration: none;
 	font-family: 'Oswald', serif;
 
-	@include flexPosition(row, center, center);
+	@include flex-position(row, center, center);
 
 	@include hover {
-		color: $indigo-900;
+		color: var(--accent-hover);
 	}
 
 	svg {

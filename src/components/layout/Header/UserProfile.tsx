@@ -1,46 +1,34 @@
-import { DropDownType } from '@/common/enums';
-import Dropdown from '@/components/ui/Dropdown/Dropdown';
 import ProfileAvatar from '@/components/ui/ProfileAvatar/ProfileAvatar';
-import { useTheme } from '@/hooks/useTheme';
 import { formatEmail } from '@/utils/formatEmail';
 import { EllipsisVertical, LogOut, Settings } from 'lucide-react';
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { UserProfileProps } from './header.interface';
 import styles from './header.module.scss';
+import Dropdown from '@/components/ui/Dropdown/Dropdown';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '@/config/url.config';
 
 const UserProfile: FC<UserProfileProps> = ({ username, avatar, email }) => {
-	const { theme } = useTheme();
-
 	return (
 		<div className={`${styles['user']} ${styles['header__user']}`}>
 			<ProfileAvatar avatar={avatar} />
-			<Dropdown type={DropDownType.RIGHT}>
-				<div className={styles['user__trigger']}>
+			<div className={styles['user__trigger']}>
 					<div className={styles['user__data']}>
 						<h2>{username}</h2>
 						<span>{formatEmail(email, 25)}</span>
 					</div>
-					<Dropdown.Trigger topGap={10} name='header-user-profile'>
-						<EllipsisVertical />
-					</Dropdown.Trigger>
-				</div>
-				<Dropdown.Body name='header-user-profile'>
-					<Link to='/settings'>
-						<Dropdown.Item>
-							<Settings size={17} /> Settings
-						</Dropdown.Item>
-					</Link>
-					<div className={styles[theme]}>
-						<div className={styles['split-line']}></div>
-					</div>
-					<Link to='/' className={styles.logout}>
-						<Dropdown.Item>
-							<LogOut size={16} /> Logout
-						</Dropdown.Item>
-					</Link>
-				</Dropdown.Body>
-			</Dropdown>
+					<Dropdown.Wrapper>
+						<Dropdown.Trigger elementFor='user-profile'><EllipsisVertical size={40} /></Dropdown.Trigger>
+						<Dropdown.Body name='user-profile' type='right'>
+							<Link to={ROUTES.settings.path} >
+								<Dropdown.Item><Settings size={16}/>Settings</Dropdown.Item>
+							</Link>
+							<Link to={ROUTES.home.path} className={styles['logout-btn']}>
+								<Dropdown.Item><LogOut size={16}/>Logout</Dropdown.Item>
+							</Link>
+						</Dropdown.Body>
+					</Dropdown.Wrapper>
+			</div>
 		</div>
 	);
 };

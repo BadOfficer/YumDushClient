@@ -1,16 +1,45 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
-import { PUBLIC_ROUTES, SPECIAL_ROUTES } from './config/url.config';
+import { ROUTES } from './config/url.config';
+import './index.scss';
 
 const router = createBrowserRouter([
 	{
 		element: <AppLayout />,
-		children: PUBLIC_ROUTES.concat(SPECIAL_ROUTES).map((route) => {
-			return {
-				path: route.path,
-				element: route.element,
-			};
-		}),
+		children: [
+			{
+				path: ROUTES.home.path,
+				element: ROUTES.home.element
+			},
+			{
+				path: ROUTES.menu.path,
+				element: ROUTES.menu.element
+			},
+			{
+				path: ROUTES.cart.path,
+				element: ROUTES.cart.element
+			},
+			{
+				path: ROUTES.orders.path,
+				element: ROUTES.orders.element
+			}, 
+			{
+				path: ROUTES.settings.path,
+				element: ROUTES.settings.element
+			},
+			{
+				path: ROUTES.signIn.path,
+				element: ROUTES.signIn.element
+			},
+			{
+				path: ROUTES.signUp.path,
+				element: ROUTES.signUp.element
+			},
+		],
+	},
+	{
+		path: ROUTES.dashboard.path,
+		element: ROUTES.dashboard.element
 	},
 ]);
 

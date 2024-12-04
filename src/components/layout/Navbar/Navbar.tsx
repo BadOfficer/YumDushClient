@@ -1,9 +1,9 @@
-import { PUBLIC_ROUTES } from '@config/url.config';
 import { useTheme } from '@hooks/useTheme';
 import { FC } from 'react';
 
 import styles from './navbar.module.scss';
 import NavbarItem from './NavbarItem';
+import { ROUTES } from '@/config/url.config';
 
 const Navbar: FC = () => {
 	const { theme } = useTheme();
@@ -11,11 +11,21 @@ const Navbar: FC = () => {
 	return (
 		<nav className={`${styles.navbar} ${styles[theme]}`}>
 			<ul className={styles['navbar__list']}>
-				{PUBLIC_ROUTES.filter((route) => route.requiredAuth).map((route) => (
-					<NavbarItem to={route.path} key={route.path}>
-						<li>{route.displayName}</li>
-					</NavbarItem>
-				))}
+				<NavbarItem to={ROUTES.home.path}>
+					Home
+				</NavbarItem>
+				<NavbarItem to={ROUTES.menu.path}>
+					Menu
+				</NavbarItem>
+				<NavbarItem to={ROUTES.orders.path}>
+					Orders
+				</NavbarItem>
+				<NavbarItem to={ROUTES.cart.path}>
+					Cart
+				</NavbarItem>
+				<NavbarItem to={ROUTES.dashboard.path}>
+					Dashboard
+				</NavbarItem>
 			</ul>
 		</nav>
 	);

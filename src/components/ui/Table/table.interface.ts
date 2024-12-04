@@ -12,10 +12,10 @@ export interface TableSectionProps
 export interface TableCellProps
 	extends TableHTMLAttributes<HTMLTableCellElement> {
 	children: ReactNode;
-	isHeaderCell?: boolean;
 }
 
 export interface TableRowProps
 	extends TableHTMLAttributes<HTMLTableRowElement> {
 	children: ReactNode;
+	isHeader?: boolean;
 }

@@ -1,9 +1,6 @@
-import { useTheme } from '@hooks/useTheme';
-
 import { FC } from 'react';
 
 import { button, ButtonProps } from '.';
-import styles from './button.module.scss';
 
 const Button: FC<ButtonProps> = ({
 	className,
@@ -12,11 +9,9 @@ const Button: FC<ButtonProps> = ({
 	children,
 	...props
 }) => {
-	const { theme } = useTheme();
-
 	return (
 		<button
-			className={`${button({ intent, size, className })} ${styles[theme]}`}
+			className={button({ intent, size, className })}
 			{...props}
 		>
 			{children}

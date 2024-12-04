@@ -3,23 +3,13 @@
 .orders {
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
+	gap: 2rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 
 	&__heading {
 		h1 {
 			text-transform: uppercase;
 		}
-	}
-}
-
-.light {
-	h1 {
-		color: $dark-600;
-	}
-}
-
-.dark {
-	h1 {
-		color: $gray-200;
 	}
 }

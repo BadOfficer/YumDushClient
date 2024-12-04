@@ -4,69 +4,33 @@
 	display: flex;
 
 	&__list {
-		@include flexPosition(row, flex-start, center);
+		@include flex-position(row, flex-start, center);
 		padding: 0.5rem;
 		gap: 1rem;
-		border-radius: 5px;
+		border-radius: 10px;
+		background-color: var(--toolbar-bg);
 	}
 
 	&__item {
+		overflow: hidden;
+		border-radius: 5px;
 		list-style: none;
 
 		button {
 			padding: 0.5rem 1rem;
-			border-radius: 5px;
 			font-size: 1rem;
 			cursor: pointer;
 			background: none;
-		}
-	}
-}
+			color: var(--main-text-color);
 
-.light {
-	.toolbar {
-		&__list {
-			background-color: $gray-200;
-		}
-
-		&__item {
-			button {
-				color: $dark-600;
-
-				@include hover {
-					background-color: $white-100;
-				}
-			}
-
-			&_active {
-				button {
-					background-color: $white-100;
-				}
+			@include hover {
+				background-color: var(--toolbar-btn-active-bg);
 			}
 		}
 	}
 }
 
-.dark {
-	.toolbar {
-		&__list {
-			background-color: $dark-600;
-		}
-
-		&__item {
-			button {
-				color: $gray-200;
-
-				@include hover {
-					background-color: $dark-400;
-				}
-			}
-
-			&_active {
-				button {
-					background-color: $dark-400;
-				}
-			}
-		}
-	}
+.active {
+	background-color: var(--toolbar-btn-active-bg);
 }
+

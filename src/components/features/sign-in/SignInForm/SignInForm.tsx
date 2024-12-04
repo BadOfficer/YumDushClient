@@ -3,14 +3,14 @@ import Button from '@components/ui/Button/Button';
 import Form from '@components/ui/Form/Form';
 import FormRow from '@components/ui/Form/FormRow';
 import Input from '@components/ui/Input/Input';
-import Message from '@components/ui/Message/Message';
+import Message from '@/components/ui/Message/Message';
 import styles from './form.module.scss';
 
 import { Lock, Mail } from 'lucide-react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import Loader from '@/components/ui/Loader/Loader';
-import { FormIf } from './form.interface';
+import { SignInFormProps } from './form.interface';
 
 const InputWithPasswordToggle = withTogglePassword(Input);
 
@@ -20,9 +20,9 @@ const SignInForm = () => {
 		formState: { errors, isSubmitting },
 		handleSubmit,
 		clearErrors,
-	} = useForm<FormIf>();
+	} = useForm<SignInFormProps>();
 
-	const onSubmit: SubmitHandler<FormIf> = async () => {
+	const onSubmit: SubmitHandler<SignInFormProps> = async () => {
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 	};
 
@@ -46,7 +46,7 @@ const SignInForm = () => {
 				>
 					<Mail size={16} /> Email
 				</Input>
-				{errors.email && <Message>*{errors.email.message}</Message>}
+				{errors.email && <Message messageText={`*${errors.email.message}`} />}
 			</FormRow>
 			<FormRow>
 				<InputWithPasswordToggle
@@ -62,7 +62,7 @@ const SignInForm = () => {
 				>
 					<Lock size={16} /> Password
 				</InputWithPasswordToggle>
-				{errors.password && <Message>*{errors.password.message}</Message>}
+				{errors.password && <Message messageText={`*${errors.password.message}`} />}
 			</FormRow>
 			<Button
 				intent={isSubmitting ? 'loading' : 'primary'}

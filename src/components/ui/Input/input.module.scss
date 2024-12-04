@@ -17,7 +17,7 @@
 		border-color: transparent;
 
 		&:focus {
-			border-color: $indigo-700;
+			border-color: var(--accent);
 			outline: none;
 		}
 	}
@@ -38,7 +38,7 @@
 		color: $dark-600;
 		gap: 0.5rem;
 
-		@include flexPosition(row, center, center);
+		@include flex-position(row, center, center);
 	}
 
 	&__toggle-container {
@@ -56,7 +56,7 @@
 		border: none;
 		cursor: pointer;
 
-		@include flexPosition(row, center, center);
+		@include flex-position(row, center, center);
 	}
 
 	.filled ~ label,
@@ -64,11 +64,7 @@
 		top: -5px;
 		font-size: 0.8rem;
 		background-color: $white-100;
-		border-color: $indigo-700;
-		color: $indigo-700;
-	}
-
-	input[type='date'] {
-		border: 2px solid $indigo-700;
+		border-color: var(--accent);
+		color: var(--accent);
 	}
 }

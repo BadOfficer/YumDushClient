@@ -14,7 +14,9 @@ const NavbarItem: FC<NavbarItemProps> = ({ to, children, ...props }) => {
 					: styles['navbar__item']
 			}
 		>
-			{children}
+			<li>
+				{children}
+			</li>
 		</NavLink>
 	);
 };

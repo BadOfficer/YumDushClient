@@ -14,77 +14,58 @@
 		cursor: default;
 	}
 
-	@include flexPosition(row, center, center);
+	@include flex-position(row, center, center);
 }
 
 .small {
 	font-size: 1rem;
-	padding: 0.6rem 1.2rem;
+	padding: calc(0.6rem - 2px) calc(1.2rem - 2px);
 	font-weight: 400;
 }
 
 .medium {
 	font-size: 1.2rem;
-	padding: 0.8rem 1.6rem;
+	padding: calc(0.8rem - 2px) calc(1.6rem - 2px);
 	font-weight: 500;
 }
 
 .large {
 	font-size: 1.4rem;
-	padding: 1rem 2rem;
+	padding: calc(1rem - 2px) calc(2rem - 2px);
 	font-weight: 600;
 }
 
+.base {
+	background-color: var(--base-btn-bg);
+	color: var(--main-text-color);
+
+	@include hover {
+		background-color: var(--base-btn-hover);
+	}
+}
+
 .primary {
-	background-color: $indigo-700;
-	color: $white-100;
+	background-color: var(--accent);
+	color: var(--white);
 	border: 2px solid transparent;
 
 	@include hover {
-		background-color: $indigo-900;
+		background-color: var(--accent-hover);
 	}
 }
 
 .secondary {
-	border: 2px solid $indigo-700;
-	color: $indigo-700;
+	border: 2px solid var(--accent);
+	color: var(--accent);
 
 	@include hover {
-		background-color: $indigo-700;
-		color: $white-100;
+		background-color: var(--accent);
+		color: var(--white);
 	}
 }
 
-.light {
-	&.base {
-		background-color: $gray-300;
-		color: $dark-600;
-
-		@include hover {
-			background-color: $gray-400;
-		}
-	}
-
-	&.loading,
-	&.button:disabled {
-		background-color: $gray-300;
-		color: $dark-100;
-	}
-}
-
-.dark {
-	&.base {
-		background-color: $gray-800;
-		color: $gray-200;
-
-		@include hover {
-			background-color: $gray-900;
-		}
-	}
-
-	&.loading,
-	&.button:disabled {
-		background-color: $dark-300;
-		color: $gray-700;
-	}
+.button:disabled,
+.loading {
+	background-color: var(--disabled-btn-bg);
+	color: var(--disabled-btn-text-color);
 }

@@ -1,8 +1,9 @@
-import { FC } from 'react';
-import { message, MessageProps } from '.';
+import { FC } from "react";
+import { MessageProps } from "./message.interface";
+import styles from './message.module.scss';
 
-const Message: FC<MessageProps> = ({ className, intent, children }) => {
-	return <p className={message({ intent, className })}>{children}</p>;
-};
+const Message: FC<MessageProps> = ({messageText, type = "error"}) => {
+    return <p className={styles[type]}>{messageText}</p>
+}
 
 export default Message;

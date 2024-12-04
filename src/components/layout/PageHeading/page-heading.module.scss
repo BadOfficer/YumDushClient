@@ -1,0 +1,13 @@
+@use '@/styles' as *;
+
+.page-heading {
+    @include flex-position(row, space-between, center);
+    width: 100%;
+
+    h2 {
+        color: var(--main-text-color);
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}

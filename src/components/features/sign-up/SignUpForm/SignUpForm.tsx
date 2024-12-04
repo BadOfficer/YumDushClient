@@ -3,14 +3,14 @@ import Button from '@components/ui/Button/Button';
 import Form from '@components/ui/Form/Form';
 import FormRow from '@components/ui/Form/FormRow';
 import Input from '@components/ui/Input/Input';
-import Message from '@components/ui/Message/Message';
+import Message from '@/components/ui/Message/Message';
 import styles from './form.module.scss';
 
 import { Lock, Mail, User } from 'lucide-react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import Loader from '@/components/ui/Loader/Loader';
-import { FormIf } from './sign-up.interface';
+import { SignUpFormProps } from './form.interface';
 
 const InputWithPasswordToggle = withTogglePassword(Input);
 
@@ -21,9 +21,9 @@ const SignUpForm = () => {
 		handleSubmit,
 		getValues,
 		clearErrors,
-	} = useForm<FormIf>();
+	} = useForm<SignUpFormProps>();
 
-	const onSubmit: SubmitHandler<FormIf> = async (data) => {
+	const onSubmit: SubmitHandler<SignUpFormProps> = async (data) => {
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 		console.log(data);
 	};
@@ -48,7 +48,7 @@ const SignUpForm = () => {
 				>
 					<User size={16} /> Full name
 				</Input>
-				{errors.fullname && <Message>*{errors.fullname.message}</Message>}
+				{errors.fullname && <Message messageText={`*${errors.fullname.message}`} />}
 			</FormRow>
 
 			<FormRow>
@@ -68,7 +68,7 @@ const SignUpForm = () => {
 				>
 					<Mail size={16} /> Email
 				</Input>
-				{errors.email && <Message>*{errors.email.message}</Message>}
+				{errors.email && <Message messageText={`*${errors.email.message}`} />}
 			</FormRow>
 
 			<FormRow>
@@ -90,7 +90,7 @@ const SignUpForm = () => {
 				>
 					<Lock size={16} /> Password
 				</InputWithPasswordToggle>
-				{errors.password && <Message>*{errors.password.message}</Message>}
+				{errors.password && <Message messageText={`*${errors.password.message}`} />}
 			</FormRow>
 
 			<FormRow>
@@ -110,7 +110,7 @@ const SignUpForm = () => {
 					<Lock size={16} /> Confirm Password
 				</InputWithPasswordToggle>
 				{errors['confirm-password'] && (
-					<Message>*{errors['confirm-password'].message}</Message>
+					<Message messageText={`*${errors['confirm-password'].message}`} />
 				)}
 			</FormRow>
 

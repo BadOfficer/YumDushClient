@@ -23,13 +23,7 @@ export const ThemeProvider: FC<ThemeProviderIf> = ({ children }) => {
 	};
 
 	useLayoutEffect(() => {
-		if (theme === 'light') {
-			document.documentElement.classList.remove('dark');
-			document.documentElement.classList.add('light');
-		} else {
-			document.documentElement.classList.add('dark');
-			document.documentElement.classList.remove('light');
-		}
+		document.documentElement.setAttribute('data-theme', theme)
 	}, [theme]);
 
 	return (

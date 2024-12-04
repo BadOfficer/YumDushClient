@@ -9,8 +9,3 @@ export enum OrderStatus {
 	CONFIRMED = 'confirmed',
 	DELIVERED = 'delivered',
 }
-
-export enum DropDownType {
-	LEFT = 'left',
-	RIGHT = 'right',
-}

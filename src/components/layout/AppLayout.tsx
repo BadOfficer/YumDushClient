@@ -6,7 +6,7 @@ const AppLayout: FC = () => {
 	return (
 		<>
 			<Header />
-			<main className='main'>
+			<main>
 				<Outlet />
 			</main>
 		</>

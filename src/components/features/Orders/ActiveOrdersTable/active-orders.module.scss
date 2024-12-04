@@ -1,7 +1,7 @@
 @use '@/styles' as *;
 
 .orders {
-	@include flexPosition(column, center, center);
+	@include flex-position(column, center, center);
 	gap: 2rem;
 }
 

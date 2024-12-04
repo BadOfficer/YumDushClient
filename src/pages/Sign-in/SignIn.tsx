@@ -1,4 +1,4 @@
-import SignInForm from '@/components/features/sign-in/SignInForm/SignInForm';
+import SignInForm from '@/components/features/Sign-in/SignInForm/SignInForm';
 import { FC } from 'react';
 import styles from './SignIn.module.scss';
 

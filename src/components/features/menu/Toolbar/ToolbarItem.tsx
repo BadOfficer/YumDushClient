@@ -6,7 +6,7 @@ const ToolbarItem: FC<ToolbarItemProps> = ({ title, isActive, ...props }) => {
 	return (
 		<li
 			className={`${styles['toolbar__item']} ${
-				isActive ? styles['toolbar__item_active'] : ''
+				isActive ? styles['active'] : ''
 			}`}
 		>
 			<button {...props}>{title}</button>

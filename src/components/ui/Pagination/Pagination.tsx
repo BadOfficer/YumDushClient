@@ -1,6 +1,6 @@
 import { useTheme } from '@/hooks/useTheme';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { useCustomParams } from '@/hooks/useCustomParams';
 import Button from '../Button/Button';
@@ -10,22 +10,29 @@ import styles from './pagination.module.scss';
 const Pagination: FC<PaginationProps> = ({
 	totalElements,
 	limit = 10,
-	initialPage = 1,
 	path = '/',
 }) => {
 	const { theme } = useTheme();
 	const { item, handleSetItem, navigate } = useCustomParams('page');
+	const [pagesNumber, setPagesNumber] = useState<number[]>([]);
 
 	const curPage = item ? Number(item) : 1;
-	const countOfPages = Math.ceil(totalElements / limit);
+	const totalPages = Math.ceil(totalElements / limit);
+	const rangeSize = 10;
+	const rangeStart = Math.floor((curPage - 1) / rangeSize) * rangeSize + 1;
+	const rangeEnd = Math.min(curPage + rangeSize - 1, totalPages);
 
-	const pagesNumber = Array.from(
-		{ length: countOfPages },
-		(_, i) => initialPage + i
-	);
+	useEffect(() => {
+		const newPages = Array.from(
+			{ length: rangeEnd - rangeStart + 1 },
+			(_, i) => rangeStart + i
+		);
+
+		setPagesNumber(newPages);
+	}, [rangeStart, rangeEnd, setPagesNumber])
 
 	const handleNext = () => {
-		handleSetItem(curPage === countOfPages ? countOfPages : curPage + 1);
+		handleSetItem(curPage === totalPages ? totalPages : curPage + 1);
 	};
 
 	const handlePrev = () => {
@@ -37,12 +44,12 @@ const Pagination: FC<PaginationProps> = ({
 	};
 
 	useEffect(() => {
-		if (curPage > countOfPages || curPage < 1) {
+		if (curPage > totalPages || curPage < 1) {
 			navigate(path);
 		}
-	}, [curPage, countOfPages, navigate, path]);
+	}, [curPage, totalPages, navigate, path]);
 
-	if (countOfPages <= 1) return;
+	if (totalPages <= 1) return;
 
 	return (
 		<div className={`${styles.pagination} ${styles[theme]}`}>
@@ -68,7 +75,7 @@ const Pagination: FC<PaginationProps> = ({
 			))}
 			<Button
 				className={styles['pagination__arrow-btn']}
-				disabled={curPage === countOfPages}
+				disabled={curPage === totalPages}
 				onClick={handleNext}
 			>
 				<ChevronRight size={20} />

@@ -18,7 +18,7 @@ const Header: FC = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<header className={`${styles.header} ${styles[theme]}`}>
+		<header className={styles['header']}>
 			<Container className={styles['header__content']}>
 				<div className={styles['header__logo']}>
 					<Logo />

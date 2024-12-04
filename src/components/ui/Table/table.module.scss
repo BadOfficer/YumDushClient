@@ -6,19 +6,22 @@
 	border: none;
 	width: 100%;
 
-	thead {
+	&__header-row {
 		text-transform: uppercase;
 		text-align: left;
-
-		th {
-			padding: 1.4rem 2rem;
-			font-weight: 600;
-		}
+		background-color: var(--table-header-bg);
 	}
 
-	&__cell {
+	&__header-cell {
+		padding: 1.4rem 2rem;
+		font-weight: 600;
+	}
+
+	&__cell,
+	&__header-cell {
 		max-width: 15rem;
 		padding: 1rem 2rem;
+		color: var(--main-text-color);
 
 		&:first-child {
 			border-radius: 10px 0 0 10px;
@@ -28,52 +31,10 @@
 			border-radius: 0 10px 10px 0;
 		}
 	}
-}
 
-.light {
-	.table {
-		&__row {
-			@include hover {
-				background-color: $gray-100;
-			}
-		}
-
-		&__cell {
-			color: $dark-600;
-		}
-	}
-
-	thead {
-		background-color: $gray-200;
-
-		tr {
-			@include hover {
-				background-color: $gray-200;
-			}
-		}
-	}
-}
-
-.dark {
-	.table {
-		&__row {
-			@include hover {
-				background-color: $dark-800;
-			}
-		}
-
-		&__cell {
-			color: $gray-200;
-		}
-	}
-
-	thead {
-		background-color: $dark-600;
-
-		tr {
-			@include hover {
-				background-color: $dark-600 !important;
-			}
+	&__row {
+		@include hover {
+			background-color: var(--table-row-hover);
 		}
 	}
 }

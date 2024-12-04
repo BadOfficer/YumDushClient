@@ -1,13 +1,11 @@
 import { categories } from '@/common/data';
 import { useCustomParams } from '@/hooks/useCustomParams';
-import { useTheme } from '@/hooks/useTheme';
 import { FC, useEffect } from 'react';
 import ToolbarItem from './ToolbarItem';
 import { ToolbarProps } from './toolbar.interface';
 import styles from './toolbar.module.scss';
 
 const Tollbar: FC<ToolbarProps> = ({ items }) => {
-	const { theme } = useTheme();
 	const { item, handleSetItem, navigate } = useCustomParams('category');
 	const activeItem = item ? item : categories[0].id;
 
@@ -22,7 +20,7 @@ const Tollbar: FC<ToolbarProps> = ({ items }) => {
 	}, [activeItem, navigate]);
 
 	return (
-		<section className={`${styles.categories} ${styles[theme]}`}>
+		<section className={styles['categories']}>
 			<ul className={styles['toolbar__list']}>
 				{items.map((category) => (
 					<ToolbarItem

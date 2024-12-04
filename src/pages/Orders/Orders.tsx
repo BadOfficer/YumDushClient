@@ -1,15 +1,13 @@
 import ActiveOrdersTable from '@/components/features/Orders/ActiveOrdersTable/ActiveOrdersTable';
 import Container from '@/components/ui/Container/Container';
-import { useTheme } from '@/hooks/useTheme';
 import styles from './order.module.scss';
+import PageHeading from '@/components/layout/PageHeading/PageHeading';
 
 const Orders = () => {
-	const { theme } = useTheme();
-
 	return (
-		<Container className={styles[theme]}>
-			<section className={`${styles['orders__heading']} ${styles['orders']}`}>
-				<h1>Orders</h1>
+		<Container className={styles['orders']}>
+			<PageHeading title='Orders' />
+			<section className={styles['orders__table']}>
 				<ActiveOrdersTable />
 			</section>
 		</Container>

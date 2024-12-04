@@ -13,7 +13,7 @@ export function useCustomParams(key: string) {
 
 	const handleDeleteItem = () => {
 		const newParams = new URLSearchParams(searchParams);
-		newParams.delete('search');
+		newParams.delete(key);
 		setSearchParams(newParams);
 	};
 

@@ -1,4 +1,4 @@
-export interface FormIf {
+export interface SignInFormProps {
 	email: string;
 	password: string;
 }

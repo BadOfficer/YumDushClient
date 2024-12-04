@@ -1,11 +1,101 @@
 @use './colors' as *;
 
+html {
+	--dark-red: #{$red-900};
+	--accent: #{$indigo-700};
+	--accent-hover: #{$indigo-900};
+	--white: #{$white-100};
+	--red: #{$red-900};
+}
+
 html[data-theme='light'] {
-	--bg-color: #{$white-200};
-	--color: #{$dark-600};
+
+	// BACKGROUND
+	--main-bg: #{$white-100};
+	--navbar-link-bg: #{$gray-300};
+	--toolbar-bg: #{$gray-200};
+
+	// TEXT
+	--main-text-color: #{$dark-600};
+	--secondary-text-color: #{$dark-300};
+
+	// BUTTONS
+	--base-btn-bg: #{$gray-300};
+	--base-btn-hover: #{$gray-500};
+
+	--disabled-btn-bg: #{$gray-400};
+	--disabled-btn-text-color: #{$dark-100};
+
+	--toolbar-btn-active-bg: #{$white-100};
+
+	// LOADER
+	--loader-button-border-bg: #{$gray-500};
+	--loader-button-bg: #{$gray-700};
+
+	--loader-base-bg: #{$gray-400};
+
+	// FORM
+	--form-bg: #{$gray-300};
+
+	// TABLE
+	--table-header-bg: #{$gray-300};
+	--table-row-hover: #{$gray-100};
+
+	// BORDER
+	--border-color: #{$gray-500};
+
+	// BOX-SHADOW
+	--main-box-shadow-color: 0 4px 7px rgba(0, 0, 0, 0.1);
+
+	// COLORS
+	--yellow: #{$yellow-800};
+
+	// INPUT
+	--search-bg: #{$gray-200};
+	--search-placeholder-color: #{$gray-700};
+
 }
 
 html[data-theme='dark'] {
-	--bg-color: #{$dark-700};
-	--color: #{$gray-200};
+	--main-bg: #{$dark-700};
+	--main-text-color: #{$gray-200};
+	--secondary-text-color: #{$gray-600};
+	--toolbar-bg: #{$dark-600};
+
+	--navbar-link-bg: #{$dark-400};
+
+	--base-btn-bg: #{$dark-400};
+	--base-btn-hover: #{$dark-600};
+
+	--disabled-btn-bg: #{$dark-300};
+	--disabled-btn-text-color: #{$gray-700};
+
+	--toolbar-btn-active-bg: #{$dark-400};
+
+	// LOADER
+	--loader-button-border-bg: #{$gray-700};
+	--loader-button-bg: #{$gray-800};
+
+	--loader-base-bg: #{$dark-300};
+
+	// FORM
+	--form-bg: #{$dark-600};
+
+	// TABLE
+	--table-header-bg: #{$dark-500};
+	--table-row-hover: #{$dark-800};
+
+	// BORDER
+	--border-color: #{$dark-500};
+
+	// BOX-SHADOW
+	--main-box-shadow-color: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+	// COLORS
+	--yellow: #{$yellow-500};
+
+
+	// INPUT
+	--search-bg: #{$dark-600};
+	--search-placeholder-color: #{$dark-300};
 }

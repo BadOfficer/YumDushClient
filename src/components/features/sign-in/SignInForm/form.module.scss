@@ -1,7 +1,7 @@
 @use '@/styles' as *;
 
 .form {
-	@include flexPosition(column, center, center);
+	@include flex-position(column, center, center);
 	padding: 2rem !important;
 	gap: 2rem;
 

@@ -1,51 +1,43 @@
-import { useCustomParams } from '@/hooks/useCustomParams';
-import { useTheme } from '@/hooks/useTheme';
-import { X } from 'lucide-react';
-import { FC, FormEvent, useState } from 'react';
-import { SearchProps } from './search.interface';
+import { ChangeEvent, FC, useEffect, useRef, useState } from "react";
+import { SearchProps } from "./search.interface";
 import styles from './search.module.scss';
+import { X } from "lucide-react";
 
-const Search: FC<SearchProps> = ({ type, icon, ...props }) => {
-	const { theme } = useTheme();
-	const [value, setValue] = useState('');
+const Search: FC<SearchProps> = ({icon, ...props}) => {
+    const [value, setValue] = useState("");
+    const ref = useRef<null | HTMLInputElement>(null);
 
-	const { handleSetItem, handleDeleteItem } = useCustomParams('search');
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value);
+    }
 
-	const handleClear = () => {
-		handleDeleteItem();
+    const handleClear = () => {
+        setValue("");
+    }
 
-		setValue('');
-	};
+    const handleClickKey = (e: KeyboardEvent) => {
+        if(e.ctrlKey && e.key === "k" && ref.current) {
+            ref.current.focus();
+            e.preventDefault();
+        }
+    };
 
-	const handleChange = (e: FormEvent<HTMLInputElement>) => {
-		const curValue = e.currentTarget.value;
+    useEffect(() => {
+        document.addEventListener("keydown", handleClickKey);
 
-		if (curValue !== '') {
-			handleSetItem(curValue);
-		} else {
-			handleDeleteItem();
-		}
+        return () => document.removeEventListener("keydown", handleClickKey);
+    }, [handleClickKey])
 
-		setValue(e.currentTarget.value);
-	};
-
-	return (
-		<div className={`${styles.search} ${styles[theme]}`}>
-			<input
-				type={type}
-				value={value}
-				onChange={(e) => handleChange(e)}
-				{...props}
-				className={`${icon ? styles['search_active'] : ''}`}
-			/>
-			{icon && <div className={styles['search__icon']}>{icon}</div>}
-			{value !== '' && (
-				<button className={styles['search__clear']} onClick={handleClear}>
-					<X size={16} />
-				</button>
-			)}
-		</div>
-	);
-};
+    return <div className={styles['search']}>
+        <input {...props} style={icon ? {paddingLeft: "3rem"} : {}} value={value} onChange={handleChange} ref={ref} />
+        <span className={styles['search__icon']}>{icon}</span>
+        {value !== '' 
+            ? 
+                <button className={styles['search__clear']} onClick={handleClear}><X size={18}/></button> 
+            : 
+                <div className={styles['search__tip']}>Ctrl + K</div>
+        }
+    </div>
+}
 
 export default Search;

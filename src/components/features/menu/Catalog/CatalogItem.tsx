@@ -1,11 +1,10 @@
 import Button from '@/components/ui/Button/Button';
-import Counter from '@/components/ui/Counter/Counter';
 import { useTheme } from '@/hooks/useTheme';
 import { ShoppingBag, Star } from 'lucide-react';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CatalogItemProps } from './catalog.interface';
 import styles from './сatalog.module.scss';
+import { CatalogItemProps } from './catalog.interface';
 
 const CatalogItem: FC<CatalogItemProps> = ({ to, item }) => {
 	const { title, description, price, sizes, image, rating, discount } = item;
@@ -48,7 +47,6 @@ const CatalogItem: FC<CatalogItemProps> = ({ to, item }) => {
 					))}
 				</ul>
 				<div className={styles['item__footer']}>
-					<Counter min={1} />
 					<div className={styles['item__prices']}>
 						<span className={discount ? styles['item__old-price'] : ''}>
 							${price}

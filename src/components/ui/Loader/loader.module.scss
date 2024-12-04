@@ -23,13 +23,13 @@
 }
 
 .base {
-	border-color: $gray-200;
-	border-top-color: $indigo-700;
+	border-color: var(--loader-base-bg);
+	border-top-color: var(--accent);
 }
 
 .button {
-	border-color: $gray-700;
-	border-top-color: $dark-400;
+	border-color: var(--loader-button-border-bg);
+	border-top-color: var(--loader-button-bg);
 }
 
 @keyframes rotate {

@@ -15,7 +15,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 		};
 
 		return (
-			<div className={styles.input}>
+			<div className={styles['input']}>
 				<div className={styles['input__content']}>
 					<input
 						{...props}
@@ -23,9 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 						onChange={handleChange}
 						className={hasValue ? styles.filled : ''}
 					/>
-					{children && !(props.type === 'date') ? (
-						<label htmlFor={props.id}>{children}</label>
-					) : null}
+					<label htmlFor={props.id}>{children}</label>
 				</div>
 			</div>
 		);

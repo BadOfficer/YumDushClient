@@ -8,63 +8,43 @@ import SignIn from '@/pages/Sign-in/SignIn';
 import SignUp from '@/pages/Sign-up/SignUp';
 import { ReactNode } from 'react';
 
-export interface RouteIf {
+
+export interface RouteProps {
 	path: string;
 	element: ReactNode;
-	displayName: string;
-	requiredAuth: boolean;
 }
 
-export const PUBLIC_ROUTES: RouteIf[] = [
-	{
+export const ROUTES = {
+	home: {
 		path: '/',
-		element: <Home />,
-		displayName: 'Home',
-		requiredAuth: true,
+		element: <Home />
 	},
-	{
+	menu: {
 		path: '/menu',
-		element: <Menu />,
-		displayName: 'Menu',
-		requiredAuth: true,
+		element: <Menu />
 	},
-	{
+	cart: {
 		path: '/cart',
-		element: <Cart />,
-		displayName: 'Cart',
-		requiredAuth: true,
+		element: <Cart />
 	},
-	{
+	signIn: {
 		path: '/sign-in',
-		element: <SignIn />,
-		displayName: 'Sign in',
-		requiredAuth: false,
+		element: <SignIn />
 	},
-	{
+	signUp: {
 		path: '/sign-up',
-		element: <SignUp />,
-		displayName: 'Sign up',
-		requiredAuth: false,
+		element: <SignUp />
 	},
-	{
-		path: '/dashboard',
-		element: <Dashboard />,
-		displayName: 'Dashboard',
-		requiredAuth: true,
-	},
-	{
-		path: '/orders',
-		element: <Orders />,
-		displayName: 'Orders',
-		requiredAuth: true,
-	},
-];
-
-export const SPECIAL_ROUTES: RouteIf[] = [
-	{
+	settings: {
 		path: '/settings',
-		element: <Settings />,
-		displayName: 'Settings',
-		requiredAuth: true,
+		element: <Settings />
 	},
-];
+	dashboard: {
+		path: '/dashboard',
+		element: <Dashboard />
+	},
+	orders: {
+		path: '/orders',
+		element: <Orders />
+	}
+}

@@ -3,7 +3,7 @@
 .pagination {
 	gap: 1rem;
 
-	@include flexPosition(row, center, center);
+	@include flex-position(row, center, center);
 
 	&__page-btn {
 		background: none !important;
@@ -12,12 +12,12 @@
 		padding: 0 !important;
 
 		&.active {
-			background-color: $indigo-700 !important;
+			background-color: var(--accent) !important;
 			color: $gray-200;
 		}
 
 		@include hover {
-			background-color: $indigo-700 !important;
+			background-color: var(--accent) !important;
 			color: $gray-200;
 		}
 	}

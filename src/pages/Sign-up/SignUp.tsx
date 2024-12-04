@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/features/sign-up/SignUpForm/SignUpForm';
+import SignUpForm from '@/components/features/Sign-up/SignUpForm/SignUpForm';
 import { FC } from 'react';
 import styles from './SignUp.module.scss';
 

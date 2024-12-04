@@ -1,4 +1,4 @@
-export interface FormIf {
+export interface SignUpFormProps {
 	fullname: string;
 	email: string;
 	password: string;

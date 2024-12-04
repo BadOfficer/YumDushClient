@@ -1,84 +1,48 @@
 @use '@/styles' as *;
 
 .search {
-	position: relative;
+    position: relative;
 
-	input {
-		font-size: 1rem;
-		padding: 0.7rem 1rem;
-		max-width: 25rem;
-		min-width: 20rem;
-		border: none;
-		outline: none;
-		border-radius: 5px;
-	}
+    input {
+        background-color: var(--search-bg);
+        min-width: 20rem;
+        padding: 0.7rem 3rem 0.7rem 1rem;
+        color: var(--main-text-color);
+        border-radius: 5px;
 
-	&__icon {
-		width: 3rem;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+        &::placeholder {
+            color: var(--search-placeholder-color);
+        }
+    }
 
-		@include flexPosition(row, center, center);
-	}
+    &__icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        color: var(--search-placeholder-color);
+        transform: translateY(-50%); 
+        display: flex;
+    }
 
-	&__clear {
-		position: absolute;
-		right: 0.5rem;
-		top: 50%;
-		transform: translateY(-50%);
-		border-radius: 50%;
-		cursor: pointer;
-		padding: 0.1rem;
+    &__clear {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        right: 1rem;
+        display: flex;
+        color: var(--main-text-color);
+    }
 
-		@include flexPosition(row, center, center);
-	}
-
-	&_active {
-		padding: 0.7rem 1rem 0.7rem 3rem !important;
-	}
-
-	&.light {
-		input {
-			background-color: $gray-200;
-			color: $gray-800;
-
-			&::placeholder {
-				color: $gray-600;
-			}
-		}
-
-		.search {
-			&__icon {
-				color: $dark-600;
-			}
-
-			&__clear {
-				background-color: $white-100;
-				color: $dark-600;
-			}
-		}
-	}
-
-	&.dark {
-		input {
-			background-color: $dark-600;
-			color: $gray-200;
-
-			&::placeholder {
-				color: $gray-700;
-			}
-		}
-
-		.search {
-			&__icon {
-				color: $gray-200;
-			}
-
-			&__clear {
-				background-color: $gray-900;
-				color: $gray-200;
-			}
-		}
-	}
+    &__tip {
+        font-size: 0.7rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1rem;
+        background-color: var(--main-bg);
+        padding: 0.3rem 0.5rem;
+        color: var(--main-text-color);
+        border-radius: 5px;
+    }
 }

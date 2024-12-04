@@ -2,8 +2,15 @@
 
 .catalog {
 	gap: 2rem;
+	width: 100%;
+	@include flex-position(column, space-between, center);
 
-	@include flexPosition(column, center, center);
+	&__list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+		width: 100%;
+	}
 
 	&__item {
 		list-style: none;
@@ -15,6 +22,7 @@
 	overflow: hidden;
 	border-radius: 5px;
 	position: relative;
+	box-shadow: var(--main-box-shadow-color);
 
 	&__image {
 		max-width: 15rem;
@@ -35,6 +43,7 @@
 		gap: 1rem;
 		padding: 1rem 2rem;
 		width: 100%;
+		color: var(--main-text-color);
 
 		p {
 			height: 3rem;
@@ -46,10 +55,11 @@
 	}
 
 	&__header {
-		@include flexPosition(row, space-between, center);
+		@include flex-position(row, space-between, center);
 
 		h2 {
-			color: $indigo-700;
+			color: var(--accent);
+			font-weight: 600;
 			font-size: 1.3rem;
 		}
 	}
@@ -58,11 +68,12 @@
 		font-size: 1rem;
 		gap: 0.5rem;
 		font-weight: 500;
+		color: var(--yellow);
 
-		@include flexPosition(row, space-between, center);
+		@include flex-position(row, space-between, center);
 
 		svg {
-			fill: $yellow-800;
+			fill: var(--yellow);
 		}
 	}
 
@@ -102,7 +113,7 @@
 		top: 0.5rem;
 		left: 0.5rem;
 	}
-
+	
 	&__cart-btn {
 		padding: 0.4rem 0.5rem;
 		font-size: 0.9rem;
@@ -112,7 +123,7 @@
 	&__footer {
 		gap: 1rem;
 
-		@include flexPosition(row, space-between, center);
+		@include flex-position(row, space-between, center);
 	}
 
 	&__prices {
@@ -121,52 +132,12 @@
 		flex: 1 1 0;
 		gap: 1rem;
 
-		@include flexPosition(row, flex-start, center);
+		@include flex-position(row, flex-start, center);
 	}
 
 	&__old-price {
 		text-decoration: line-through;
 		font-size: 1rem;
 		color: $red-900;
-	}
-
-	&.light {
-		background-color: $gray-100;
-
-		.item {
-			&__rating {
-				color: $yellow-800;
-			}
-
-			&__content {
-				p {
-					color: $dark-600;
-				}
-			}
-
-			&__footer {
-				color: $dark-600;
-			}
-		}
-	}
-
-	&.dark {
-		background-color: $dark-600;
-
-		.item {
-			&__rating {
-				color: $yellow-500;
-			}
-
-			&__content {
-				p {
-					color: $gray-200;
-				}
-			}
-
-			&__footer {
-				color: $gray-200;
-			}
-		}
 	}
 }

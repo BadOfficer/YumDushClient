@@ -5,7 +5,7 @@ import styles from './logo.module.scss';
 
 const Logo: FC = () => {
 	return (
-		<Link to='/' className={styles.logo}>
+		<Link to='/' className={styles['logo']}>
 			<Utensils />
 			<h1>YumDush</h1>
 		</Link>
